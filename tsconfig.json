@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "baseUrl": ".",
+    "sourceMap": true,
+    "outDir": "./build",
+    "rootDir": "./src",
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "typeRoots": ["./typings"],
+    "allowJs": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "module": "esnext",
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false
+  },
+  "exclude": ["node_modules"],
+  "include": ["typings/**/*.d.ts", "src/**/*.ts", "src/**/*.tsx"],
+  "files": ["src/server.ts"]
+}

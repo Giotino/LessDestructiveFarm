@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=farm
+      - DB_USER=postgres
+      - DB_PASS=postgres
+      - DB_DIALECT=postgres
+    volumes:
+      - ./game:/usr/src/app/game
+    ports:
+      - '3000:3000'
+
+  postgres:
+    image: postgres:12
+    environment:
+      - POSTGRES_DB=farm
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
