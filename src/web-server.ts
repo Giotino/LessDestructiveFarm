@@ -16,7 +16,6 @@ export const initWebServer = async (error?: any) => {
       res.end(error.toString());
     });
   } else {
-
     Log.wait('Loading Next.JS');
     await app.prepare(); // Await for nextjs init
     Log.ready('Next.JS Ready');
@@ -37,6 +36,6 @@ export const initWebServer = async (error?: any) => {
     });
   }
 
-  server.listen(3000)
+  server.listen(3000);
   Log.ready('> Server ready on http://localhost:3000');
 };

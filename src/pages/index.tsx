@@ -82,11 +82,7 @@ export default class extends Component<Props> {
   }
 
   render() {
-    const {
-      totalFlags,
-      flags,
-      query
-    } = this.props;
+    const { totalFlags, flags, query } = this.props;
 
     const pages = Math.ceil(totalFlags / FLAGS_PER_PAGE);
     const currentPage = parseInt(query.page, 10);

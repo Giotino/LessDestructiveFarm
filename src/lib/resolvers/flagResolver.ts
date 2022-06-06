@@ -166,7 +166,7 @@ export class FlagResolver {
         timestamp: new Date()
       });
     }
-    
+
     await Flag.bulkCreate(flagsForInserion, { ignoreDuplicates: true });
     return true;
   }

@@ -4,9 +4,16 @@ const SYSTEM_IP = 'TCP_FLAG_SUBMISSION_IP';
 const SYSTEM_PORT = 31337;
 const TIMEOUT_MS = 5000;
 const teams = require('./teams.json');
+// Teams format:
+/*
+{
+  "name1": "IP1",
+  "name2": "IP2"
+}
+*/
 
 //status: 'QUEUED' | 'SKIPPED' | 'ACCEPTED' | 'REJECTED'
-const responseToStatus = (response) => {
+const responseToStatus = response => {
   response = response.toLowerCase();
   if (response.startsWith('[ok]')) return 'ACCEPTED';
   if (response.startsWith('[err]')) return 'REJECTED';
@@ -14,7 +21,7 @@ const responseToStatus = (response) => {
 };
 
 module.exports = {
-  flagFormat: '/^\w{31}=$/',
+  flagFormat: '/^w{31}=$/',
   submitInterval: 120,
   teams,
   submitFlags: (flags, onSubmit) =>
@@ -24,7 +31,7 @@ module.exports = {
       socket.setTimeout(TIMEOUT_MS);
 
       let buffer = '';
-      const untilNewline = (chunk) => {
+      const untilNewline = chunk => {
         buffer += chunk;
         if (buffer.includes('\n')) {
           const rows = buffer.split(/\n/g);
@@ -45,7 +52,7 @@ module.exports = {
       });
 
       // Work on responses
-      socket.on('data', async (chunk) => {
+      socket.on('data', async chunk => {
         const rows = untilNewline(chunk);
         if (rows) {
           for (const row of rows) {
@@ -70,7 +77,7 @@ module.exports = {
         socket.end();
       });
 
-      socket.on('error', (e) => {
+      socket.on('error', e => {
         console.log('Socket error', e);
         socket.end();
         reject();
@@ -81,5 +88,5 @@ module.exports = {
       });
 
       socket.connect(SYSTEM_PORT, SYSTEM_IP, () => {});
-    }),
+    })
 };

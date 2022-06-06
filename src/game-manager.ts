@@ -56,7 +56,7 @@ class GameManager {
             flags,
             async (submittedFlags: string | string[], status: FlagState, response: string) => {
               if (!Array.isArray(submittedFlags)) submittedFlags = [submittedFlags];
-              
+
               // Also search status = QUEUED, because it may already have been submitted
               for (const flag of submittedFlags) {
                 await Flag.update(
