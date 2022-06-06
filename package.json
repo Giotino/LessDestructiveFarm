@@ -13,9 +13,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.giotino.com:Giotino/lessdestructivefarm.git"
+    "url": "git@github.com:Giotino/LessDestructiveFarm.git"
   },
-  "author": "Giotino <giovanni@minotti.net>",
+  "author": "Giotino <giovanni@minotti.io>",
   "license": "UNLICENSED",
   "dependencies": {
     "apollo-boost": "^0.4.4",

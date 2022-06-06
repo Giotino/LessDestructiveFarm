@@ -28,8 +28,8 @@ class GameManager {
   }
 
   async init() {
-    this.game = require(gameDir);
     const { stdout, stderr, error } = await this.install();
+    this.game = require(gameDir);
 
     if (error) throw error;
 
