@@ -15,6 +15,7 @@ const teams = require('./teams.json');
 module.exports = {
   flagFormat: '[A-Z0-9]{31}=',
   submitInterval: 120,
+  flagLifetime: 5 * 120,
   teams,
   submitFlags: async (flags, onSubmit) => {
     const tot = flags.length;

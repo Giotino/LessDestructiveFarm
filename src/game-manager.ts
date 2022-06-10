@@ -11,6 +11,7 @@ class GameManager {
     return {
       TEAMS: this.game.teams,
       FLAG_FORMAT: this.game.flagFormat,
+      FLAG_LIFETIME: this.game.flagLifetime,
       SUBMIT_PERIOD: this.game.submitInterval
     };
   }
