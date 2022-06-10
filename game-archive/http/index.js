@@ -26,7 +26,7 @@ module.exports = {
             'X-Team-Token': TEAM_TOKEN
           },
           timeout: TIMEOUT_MS,
-          body: JSON.stringify(flags.slice(i, i + chunkSize))
+          json: flags.slice(i, i + chunkSize)
         })
         .json();
 
