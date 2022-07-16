@@ -21,7 +21,7 @@ const responseToStatus = response => {
 };
 
 module.exports = {
-  flagFormat: '/^w{31}=$/',
+  flagFormat: '[A-Z0-9]{31}=',
   submitInterval: 120,
   flagLifetime: 5 * 120,
   teams,
